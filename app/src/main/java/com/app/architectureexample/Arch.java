@@ -1,6 +1,5 @@
 package com.app.architectureexample;
 
-import android.app.Activity;
 import android.app.Application;
 
 import com.app.architectureexample.di.AppInjector;
@@ -9,11 +8,11 @@ import javax.inject.Inject;
 
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
-import dagger.android.HasActivityInjector;
+import dagger.android.HasAndroidInjector;
 
-public class Arch extends Application implements HasActivityInjector {
+public class Arch extends Application implements HasAndroidInjector {
     @Inject
-    DispatchingAndroidInjector<Activity> dispatchingAndroidInjector;
+    DispatchingAndroidInjector<Object> dispatchingAndroidInjector;
 
     @Override
     public void onCreate() {
@@ -24,7 +23,7 @@ public class Arch extends Application implements HasActivityInjector {
     }
 
     @Override
-    public AndroidInjector<Activity> activityInjector() {
+    public AndroidInjector<Object> androidInjector() {
         return dispatchingAndroidInjector;
     }
 }

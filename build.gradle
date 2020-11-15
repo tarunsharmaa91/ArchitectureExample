@@ -12,7 +12,7 @@ buildscript {
     }
 }
 
-ext.daggerVersion = '2.15'
+ext.daggerVersion = '2.27'
 
 allprojects {
     repositories {
